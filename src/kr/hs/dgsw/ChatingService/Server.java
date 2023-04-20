@@ -1,13 +1,9 @@
 package kr.hs.dgsw.ChatingService;
 
-import java.io.IOException;
-import java.io.ObjectInputStream;
-import java.io.ObjectOutputStream;
-import java.net.ServerSocket;
-import java.net.Socket;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.Date;
+import java.io.*;
+import java.net.*;
+import java.text.*;
+import java.util.*;
 
 public class Server {
     private static int uniqueId;
@@ -38,7 +34,7 @@ public class Server {
         } catch (IOException e) {
             display("서버 예외 발생 " + e);
         }
-        System.out.println("서버 종료");
+        System.out.println("[서버 종료]");
     }
 
     public void stop() {

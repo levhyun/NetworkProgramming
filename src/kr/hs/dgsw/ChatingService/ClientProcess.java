@@ -1,18 +1,18 @@
 package kr.hs.dgsw.ChatingService;
 
-import java.net.InetAddress;
-import java.net.InetSocketAddress;
-import java.util.Scanner;
+import java.net.*;
+import java.util.*;
 
 public class ClientProcess {
-    public static void main(String[] args) {
+    public static void main(String[] args) throws UnknownHostException {
         Scanner scanner = new Scanner(System.in);
         String userName = "";
         int port = 1234;
         System.out.print("이름을 입력하세요 : ");
         userName = scanner.nextLine();
 
-        InetAddress inetAddress = InetAddress.getLoopbackAddress();
+        InetAddress inetAddress = InetAddress.getByAddress(new byte[]{(byte)10, (byte)80, (byte)163, (byte)78});
+//        InetAddress inetAddress = InetAddress.getLoopbackAddress();
         InetSocketAddress socketAddress = new InetSocketAddress(inetAddress, port);
 
         Client client = new Client(socketAddress, userName);
